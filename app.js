@@ -121,8 +121,10 @@ function changeMainPageBackground(orientation, firstColor, secondColor) {
   gradientOrientationBar.value = orientation;
   rotationSpan.textContent = `${orientation}°`;
   firstInputColor.style.backgroundColor = `${firstColor}`;
+  firstInputColor.value = firstColor;
   labelFirstInputColor.textContent = `${firstColor.toUpperCase()}`;
   secondInputColor.style.backgroundColor = `${secondColor}`;
+  secondInputColor.value = secondColor;
   labelSecondInputColor.textContent = `${secondColor.toUpperCase()}`;
 }
 
