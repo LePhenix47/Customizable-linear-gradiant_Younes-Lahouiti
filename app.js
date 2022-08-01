@@ -93,6 +93,12 @@ gradientOrientationBar.addEventListener("input", (e) => {
 function changeMainPageBackground(orientation, firstColor, secondColor) {
   mainPageBackgroundGradient.style.backgroundImage = `linear-gradient(${orientation}deg, ${firstColor}, ${secondColor})`;
   valueOfLinearGradient = mainPageBackgroundGradient.style.backgroundImage;
+  gradientOrientationBar.value = orientation;
+  rotationSpan.textContent = `${orientation}°`;
+  firstInputColor.style.backgroundColor = `${firstColor}`;
+  labelFirstInputColor.textContent = `${firstColor.toUpperCase()}`;
+  secondInputColor.style.backgroundColor = `${secondColor}`;
+  labelSecondInputColor.textContent = `${secondColor.toUpperCase()}`;
 }
 
 copyButton.addEventListener("click", () => {
@@ -100,8 +106,17 @@ copyButton.addEventListener("click", () => {
   alert("Successfully copied the linear gradient to the clipboard!");
 });
 
-const colorLabels = document.querySelectorAll("label");
+function createRandomGradient() {
+  let maxRangeOfHexNumbers = 16777215;
+  let randomColor1 = `#${Math.floor(
+    Math.random() * maxRangeOfHexNumbers
+  ).toString(16)}`;
+  let randomColor2 = `#${Math.floor(
+    Math.random() * maxRangeOfHexNumbers
+  ).toString(16)}`;
+  let randomOrientation = Math.trunc(Math.random() * 1000) % 360;
 
-function createRandomGradient() {}
+  changeMainPageBackground(randomOrientation, randomColor1, randomColor2);
+}
 
 randomButton.addEventListener("click", createRandomGradient);
