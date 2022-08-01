@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable background</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+    <link rel="icon" type="image/gif" href="./Screenshot 2022-08-01 at 14-18-49 Customizable background.png" />
+</head>
+
+<body>
+    <main class="main main--gradient">
+        <div class="container">
+            <div class="container__colors">
+                <div class="container__label-input">
+                    <label for="primary-color">#FF5F6D</label>
+                    <input type="color" class="container__primary-color-input" value="#FF5F6D" id="primary-color">
+                </div>
+                <div class="container__label-input">
+                    <label for="secondary-color">#FFC371</label>
+                    <input type="color" class="container__secondary-color-input" value="#FFC371" id="secondary-color">
+                </div>
+
+            </div>
+            <div class="container__gradient">
+                <p class="container__gradient-orientation-paragraph">Orientation: <span
+                        class="container__gradient-orientation-degrees">90°</span></p>
+                <input type="range" class="container__gradient-orientation-input" min="0" max="360" value="90" step="1">
+            </div>
+            <div class="container__buttons">
+                <button type="button" class="container__copy-button">Copier</button>
+                <button type="button" class="container__random-color-button">Random</button>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

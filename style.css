@@ -1,0 +1,139 @@
+/*
+I hate CSS, SASS is 1000000× better 
+*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #333;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container>* {
+  margin: 20px 0;
+}
+
+.main--gradient {
+  background-image: linear-gradient(90deg, #FF5F6D, #FFC371);
+  z-index: -1;
+}
+
+
+
+.container__colors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.container__label-input>*:not(label) {
+  padding: 5px;
+  border: 2px solid white;
+  transition: border 350ms ease;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 5px 0;
+  width: 400px;
+}
+
+.container__label-input {
+  position: relative;
+}
+
+.container__label-input>label {
+  color: black;
+  transition: color 350ms ease;
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  left: 25px;
+  top: 19px;
+}
+
+input[type="color"]:hover {
+  cursor: pointer;
+}
+
+.container__primary-color-input {
+
+  background-color: #FF5F6D;
+}
+
+.container__secondary-color-input {
+  background-color: #FFC371;
+
+}
+
+.container__primary-color-input::-webkit-color-swatch, .container__secondary-color-input::-webkit-color-swatch {
+  display: none;
+}
+
+.container__primary-color-input::-moz-color-swatch, .container__secondary-color-input::-moz-color-swatch {
+  display: none;
+}
+
+.container__gradient-orientation-paragraph {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.container__gradient-orientation-input {
+  width: 100%;
+  padding: 10px 0;
+}
+
+
+button[type="button"] {
+  padding: 16px 35px;
+  border: 2px solid #adadad;
+  border-radius: 15px;
+  font-size: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.262);
+  background-color: #fff;
+  transition: background-color 100ms ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(238, 236, 236);
+}
+
+input[type="range"]:hover {
+  cursor: grab;
+}
+
+input[type="range"]:active {
+  cursor: grabbing;
+}
+
+button:active {
+  background-color: rgb(222, 222, 222);
+}
+
+.container__buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
