@@ -79,6 +79,16 @@ secondInputColor.addEventListener("input", (e) => {
   );
 });
 
+// function checkLuminosity(inputtedColor, label, input) {
+//   if (inputtedColor > "#BABABA") {
+//     label.style.color = "black";
+//     input.style.border = "2px solid black";
+//   } else {
+//     label.style.color = "white";
+//     input.style.border = "2px solid white";
+//   }
+// }
+
 gradientOrientationBar.addEventListener("input", (e) => {
   let inputtedOrientation = e.target.value;
   rotationSpan.textContent = `${inputtedOrientation}°`;
@@ -91,6 +101,21 @@ gradientOrientationBar.addEventListener("input", (e) => {
 });
 
 function changeMainPageBackground(orientation, firstColor, secondColor) {
+  if (firstColor > "#BABABA") {
+    labelFirstInputColor.style.color = "black";
+    firstInputColor.style.border = "2px solid black";
+  } else {
+    labelFirstInputColor.style.color = "white";
+    firstInputColor.style.border = "2px solid white";
+  }
+  if (secondColor > "#BABABA") {
+    labelSecondInputColor.style.color = "black";
+    secondInputColor.style.border = "2px solid black";
+  } else {
+    labelSecondInputColor.style.color = "white";
+    secondInputColor.style.border = "2px solid white";
+  }
+
   mainPageBackgroundGradient.style.backgroundImage = `linear-gradient(${orientation}deg, ${firstColor}, ${secondColor})`;
   valueOfLinearGradient = mainPageBackgroundGradient.style.backgroundImage;
   gradientOrientationBar.value = orientation;

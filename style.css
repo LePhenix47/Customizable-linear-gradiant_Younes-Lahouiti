@@ -137,3 +137,25 @@ button:active {
   align-items: center;
 
 }
+
+@media screen and (max-width: 768px) {
+  .container__label-input {
+    width: 85vw;
+  }
+
+  .container__label-input>*:not(label) {
+    width: 85vw;
+  }
+
+  .container__buttons {
+    flex-direction: column;
+  }
+
+  .container__buttons>* {
+    margin-bottom: 10px;
+  }
+
+  .container__gradient-orientation-paragraph {
+    width: 100%;
+  }
+}
