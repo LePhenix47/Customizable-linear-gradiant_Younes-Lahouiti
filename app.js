@@ -134,14 +134,12 @@ copyButton.addEventListener("click", () => {
 });
 
 function createRandomGradient() {
-  let maxRangeOfHexNumbers = 16777215;
-  let randomColor1 = `#${Math.floor(
-    Math.random() * maxRangeOfHexNumbers
-  ).toString(16)}`;
-  let randomColor2 = `#${Math.floor(
-    Math.random() * maxRangeOfHexNumbers
-  ).toString(16)}`;
-  let randomOrientation = Math.trunc(Math.random() * 1000) % 360;
+  let randomColor1 = `#${Math.random().toString(16).substring(2, 8)}`;
+  let randomColor2 = `#${Math.random().toString(16).substring(2, 8)}`;
+  let randomOrientation = Math.trunc(Math.random() * 1000) % 361;
+
+  mainPageColorPrimary = randomColor1;
+  mainPageColorSecondary = randomColor2;
 
   changeMainPageBackground(randomOrientation, randomColor1, randomColor2);
 }
