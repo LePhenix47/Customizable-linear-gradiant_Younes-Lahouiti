@@ -1,6 +1,40 @@
 /*
 I hate CSS, SASS is 1000000× better 
 */
+
+/*
+CSS variables
+*/
+:root {
+  color-scheme: light;
+  --text-color: black;
+  --card-bg-color: white;
+  --card-bg-color--hover: #eeecec;
+  --card-bg-color--active: #dddddd;
+  --border-color: #adadad;
+  --webkit-thumb-shadow-color: hsl(0, 0%, 32%);
+  --webkit-thumb-bg-color: black;
+  --shadow-color: rgb(0 0 0 / 26%);
+}
+
+/*
+Dark mode
+*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --text-color: white;
+    --card-bg-color: black;
+    --card-bg-color--hover: rgb(17, 19, 19);
+    --card-bg-color--active: rgb(34, 34, 34);
+
+    --border-color: #525252;
+    --webkit-thumb-shadow-color: hsl(0, 0%, 68%);
+    --webkit-thumb-bg-color: white;
+  }
+}
+
+
 *,
 ::before,
 ::after {
@@ -12,7 +46,7 @@ I hate CSS, SASS is 1000000× better
 body {
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
-  background: #333;
+  transition: all 350ms ease-out;
 }
 
 .main {
@@ -57,7 +91,7 @@ body {
 }
 
 .container__label-input>label {
-  color: black;
+  color: var(--text-color);
   transition: color 350ms ease;
   font-size: 16px;
   font-weight: bold;
@@ -88,8 +122,14 @@ input[type="color"]:hover {
   display: none;
 }
 
+.container__gradient {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .container__gradient-orientation-paragraph {
-  background-color: #fff;
+  background-color: var(--card-bg-color);
   border-radius: 5px;
   padding: 5px;
   width: 35%;
@@ -99,36 +139,82 @@ input[type="color"]:hover {
 }
 
 .container__gradient-orientation-input {
+  border-radius: 100vmax;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 100%;
-  padding: 10px 0;
+  padding: 1.8px;
+  overflow: hidden;
+}
+
+.container__gradient-orientation-input::-webkit-slider-runnable-track {
+  background-color: var(--border-color);
+  border-radius: 100vmax;
+  overflow: hidden;
+}
+
+.container__gradient-orientation-input::-moz-range-track {
+  width: 100%;
+  background-color: var(--border-color);
+  border-radius: 100vmax;
+  overflow: hidden;
+}
+
+.container__gradient-orientation-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--webkit-thumb-bg-color);
+  aspect-ratio: 1/1;
+  height: 15px;
+  border-radius: 50%;
+  box-shadow: -255px -15px 0px 250px var(--webkit-thumb-shadow-color);
+}
+
+.container__gradient-orientation-input::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--webkit-thumb-bg-color);
+  aspect-ratio: 1/1;
+  height: 15px;
+  border-radius: 50%;
+  box-shadow: -255px -15px 0px 250px var(--webkit-thumb-shadow-color);
+}
+
+input[type=range]:-moz-focusring {
+  outline: 1px solid white;
+  outline-offset: -1px;
 }
 
 
 button[type="button"] {
-  padding: 16px 35px;
-  border: 2px solid #adadad;
+  padding: 15px 0;
+  width: 145px;
+  border: 2px solid var(--border-color);
   border-radius: 15px;
   font-size: 18px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.262);
-  background-color: #fff;
+  background-color: var(--card-bg-color);
   transition: background-color 100ms ease-in-out;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: rgb(238, 236, 236);
+  background-color: var(--card-bg-color--hover);
 }
 
 input[type="range"]:hover {
+  cursor: -webkit-grab;
   cursor: grab;
 }
 
 input[type="range"]:active {
+  cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 
 button:active {
-  background-color: rgb(221, 221, 221);
+  background-color: var(--card-bg-color--active);
 }
 
 .container__buttons {
@@ -157,5 +243,13 @@ button:active {
 
   .container__gradient-orientation-paragraph {
     width: 100%;
+  }
+
+  .container__gradient-orientation-input::-webkit-slider-thumb {
+    box-shadow: -485px -15px 0px 480px var(--webkit-thumb-shadow-color);
+  }
+
+  .container__gradient-orientation-input::-moz-range-thumb {
+    box-shadow: -485px -15px 0px 480px var(--webkit-thumb-shadow-color);
   }
 }
