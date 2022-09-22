@@ -173,6 +173,7 @@ input[type="color"]:hover {
 
 .container__gradient-orientation-input::-moz-range-thumb {
   -webkit-appearance: none;
+  border: none;
   appearance: none;
   background-color: var(--webkit-thumb-bg-color);
   aspect-ratio: 1/1;
