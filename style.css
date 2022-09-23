@@ -11,9 +11,9 @@ CSS variables
   --card-bg-color: white;
   --card-bg-color--hover: #eeecec;
   --card-bg-color--active: #dddddd;
-  --border-color: #adadad;
-  --webkit-thumb-shadow-color: hsl(0, 0%, 32%);
-  --webkit-thumb-bg-color: black;
+  --border-color: #525252;
+  --webkit-thumb-shadow-color: hsl(0, 0%, 68%);
+  --webkit-thumb-bg-color: white;
   --shadow-color: rgb(0 0 0 / 26%);
 }
 
@@ -27,10 +27,6 @@ Dark mode
     --card-bg-color: black;
     --card-bg-color--hover: rgb(17, 19, 19);
     --card-bg-color--active: rgb(34, 34, 34);
-
-    --border-color: #525252;
-    --webkit-thumb-shadow-color: hsl(0, 0%, 68%);
-    --webkit-thumb-bg-color: white;
   }
 }
 
@@ -156,9 +152,10 @@ input[type="color"]:hover {
 
 .container__gradient-orientation-input::-moz-range-track {
   width: 100%;
+  height: 100%;
   background-color: var(--border-color);
   border-radius: 100vmax;
-  overflow: hidden;
+
 }
 
 .container__gradient-orientation-input::-webkit-slider-thumb {
@@ -174,15 +171,14 @@ input[type="color"]:hover {
 .container__gradient-orientation-input::-moz-range-thumb {
   -webkit-appearance: none;
   border: none;
+  -moz-appearance: none;
   appearance: none;
   background-color: var(--webkit-thumb-bg-color);
   aspect-ratio: 1/1;
   height: 15px;
-  border-radius: 50%;
-  box-shadow: -255px -15px 0px 250px var(--webkit-thumb-shadow-color);
+  box-shadow: -205px -0px 0px 200px var(--webkit-thumb-shadow-color);
+  border: none;
 }
-
-
 
 button[type="button"] {
   padding: 15px 0;
@@ -190,7 +186,7 @@ button[type="button"] {
   border: 2px solid var(--border-color);
   border-radius: 15px;
   font-size: 18px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.262);
+  box-shadow: 0 2px 5px var(--shadow-color);
   background-color: var(--card-bg-color);
   transition: background-color 100ms ease-in-out;
 }
